@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a><%= link_to "Merchants", merchants_path, class: "navbar-brand" %></a>
+    	</div>
+    </div>
+  </div>
+</nav>
+<% if notice.present? %>
+  <div class="notification is-link is-light"><%= notice %></div>
+<% end %>
+
+<% if alert.present? %>
+  <div class="notification is-danger is-light"><%= alert %></div>
+<% end %>

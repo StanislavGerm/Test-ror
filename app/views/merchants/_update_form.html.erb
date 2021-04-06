@@ -1,0 +1,56 @@
+<div class="container d-flex justify-content-center text-center">
+  <div class="card">
+    <%= form_with(model: merchant) do |form| %>
+      <% if merchant.errors.any? %>
+        
+        <div class="message is-danger">
+          <div class="message-header">
+          <p><%= pluralize(merchant.errors.count, "error") %> prohibited this merchant from being saved:</p>
+        </div>
+
+          <div class="message-body">
+          <ul>
+            <% merchant.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= form.label :name, class: "label" %>
+        <%= form.text_field :name, class: "input", placeholder: "Name"  %>
+      </div>
+
+      <div class="field">
+        <%= form.label :city, class: "label" %>
+        <%= form.text_field :city, class: "input", placeholder: "City" %>
+      </div>
+      <div class="field">
+        <%= form.label :street, class: "label" %>
+        <%= form.text_field :street, class: "input", placeholder: "Street" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :country_code, class: "label" %>
+        <%= form.text_field :country_code, class: "input", placeholder: "Country code" %>
+      </div>
+
+      <% if merchant.extra.present? && merchant.extra["phone_number"] %>
+        <div class="field">
+          <%= form.label :phone_number, class: "label" %>
+          <%= form.text_field :phone_number, class: "input", placeholder: "Phone number", value: merchant.extra["phone_number"] %>
+        </div>
+      <% end %>
+
+      <% if merchant.extra.present? && merchant.extra["website"] %>
+        <div class="field">
+          <%= form.label :website, class: "label" %>
+          <%= form.text_field :website, class: "input", placeholder: "Website", value: merchant.extra["website"] %>
+        </div>
+      <% end %>
+
+      <button type="submit" class="btn btn-outline-secondary"> Update </button>
+       <%= link_to "Back", merchants_path, class: "btn btn-outline-dark" %> 
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,54 @@
+<%= render "shared/internal_navbar" %>
+  <%= form_tag merchants_path, :method => "get" do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Name"%>
+  <%= submit_tag "Search", class: "btn btn-secondary btn-sm" %>
+  <% end %>
+  <br>
+  <p><%= link_to "Create new merchant", new_merchant_path, class: "btn btn-outline-dark" %></p>
+
+<div class="container text-center">
+  <% if current_user %>
+  <% else %>
+    <div class="alert alert-danger">
+      <p> Some functions disabled. Please Sign In or Sign Up.</p>
+    </div>
+  <% end %>
+</div>
+<% @merchants.each do |merchant| %>
+  <div class="text-center">
+    <div class="container d-flex justify-content-center">
+      <div class="row row-flex">
+        <div class="col-md-auto">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <div class="col">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Street</th>
+                <th scope="col">Country code</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </div>
+            </thead>
+            <tbody>
+              <tr>
+              <td><%= merchant.name %></td>
+              <td><%= merchant.city %></td>
+              <td><%= merchant.street %></td>
+              <td><%= merchant.country_code %></td>
+              <td>
+                <% if current_user %>
+                  <%= link_to 'Show', merchant, class: "btn btn-outline-dark btn-sm" %>
+                <% else %>
+                <% end %>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

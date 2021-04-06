@@ -1,0 +1,53 @@
+<<<<<<< HEAD
+<%= render "shared/internal_navbar" %>
+<div class="container text-center">
+  <div class="container d-flex justify-content-center">
+    <div class="card" style="width: 18rem;"> 
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: <%= @merchant.name %></li>
+        <li class="list-group-item">City: <%= @merchant.city %></li>
+        <li class="list-group-item">Street: <%= @merchant.street %></li>
+        <li class="list-group-item">Country code: <%= @merchant.country_code %></li>
+        <li class="list-group-item">Phone number: <%= @merchant.extra["phone_number"] %></li>
+        <li class="list-group-item">Website: <%= @merchant.extra["website"] %></li>
+        <li class="list-group-item">Email: <%= @merchant.user.email %></li>
+      </ul>
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <% if @merchant.user_id == current_user.id %> 
+        <%= link_to "Back", merchants_path, class: "btn btn-outline-dark" %>
+        <%= link_to "Edit", edit_merchant_path(@merchant), class: "btn btn-outline-dark" %> 
+        <%= link_to "Destroy", @merchant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-dark" %>
+        <% else %>
+        <%= link_to "Back", merchants_path, class: "btn btn-outline-dark" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+=======
+<div class="container d-flex justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      Name: <%= @merchant.name %>
+    </div>  
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">City: <%= @merchant.city %></li>
+      <li class="list-group-item">Street: <%= @merchant.street %></li>
+      <li class="list-group-item">Country code: <%= @merchant.country_code %></li>
+      <li class="list-group-item">Phone number: <%= @merchant["phone_number"] %></li>
+      <li class="list-group-item">Website: <%= @merchant["website"] %></li>
+      <li class="list-group-item">Email: <%= @merchant.user.email %></li>
+    </ul>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <% if @merchant.user_id == current_user.id %> 
+      <%= link_to "Back", merchants_path, class: "btn btn-outline-dark" %>
+      <%= link_to "Edit", edit_merchant_path(@merchant), class: "btn btn-outline-dark" %> 
+      <%= link_to "Destroy", @merchant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-dark" %>
+      <% else %>
+      <%= link_to "Back", merchants_path, class: "btn btn-outline-dark" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+>>>>>>> a8e765b... css index
