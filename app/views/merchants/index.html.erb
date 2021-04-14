@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%= render "shared/internal_navbar" %>
   <%= form_tag merchants_path, :method => "get" do %>
   <%= text_field_tag :search, params[:search], placeholder: "Name" %>
@@ -15,15 +14,6 @@
     </div>
   <% end %>
 </div>
-=======
-  <%= form_tag merchants_path, :method => "get" do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", class: "btn btn-outline-success" %>
-  <% end %>
-  <br>
-  <p><%= link_to "Create new merchant", new_merchant_path, class: "btn btn-outline-success" %></p>
-
->>>>>>> a8e765b... css index
 <% @merchants.each do |merchant| %>
   <div class="text-center">
     <div class="container d-flex justify-content-center">
@@ -37,7 +27,7 @@
                 <th scope="col">City</th>
                 <th scope="col">Street</th>
                 <th scope="col">Country code</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Action</th>
               </tr>
             </div>
             </thead>
@@ -49,11 +39,7 @@
               <td><%= merchant.country_code %></td>
               <td>
                 <% if current_user %>
-<<<<<<< HEAD
                   <%= link_to 'Show', merchant, class: "btn btn-outline-dark btn-sm" %>
-=======
-                  <%= link_to 'Show more ...', merchant, class: "btn btn-info btn-sm" %>
->>>>>>> a8e765b... css index
                 <% else %>
                 <% end %>
               </td>

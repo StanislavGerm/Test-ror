@@ -1,28 +1,14 @@
 class MerchantsController < ApplicationController
   before_action :set_merchant, only: [:show, :edit ,:update, :destroy]
   before_action :authenticate_user!, except: [:index]
-<<<<<<< HEAD
-
-=======
-  # GET 
->>>>>>> a8e765b... css index
+  
   def index
     @merchants = Merchant.search(params[:search])
   end
-
-<<<<<<< HEAD
-=======
-  # GET 
-  def show
-  end
-
-  # GET
->>>>>>> a8e765b... css index
   def new
     @merchant = Merchant.new
   end
 
-<<<<<<< HEAD
   def my_merchants
     @merchants = current_user.merchants
   end
@@ -33,26 +19,6 @@ class MerchantsController < ApplicationController
 
   def create
     @merchant = Merchant.new(merchant_params.merge!("user_id" => current_user.id))
-=======
-  # GET 
-  def edit
-  end
-
-  # POST 
-  def create
-       params = merchant_params.merge!(
-      extra: {
-        "phone_number" => merchant_params["phone_number"], 
-        "website"      => merchant_params["website"]
-      },
-      user_id: current_user.id
-    )
-
-    
-
-    @merchant = Merchant.new(params)
->>>>>>> a8e765b... css index
-
     respond_to do |format|
       if !valid_website?(merchant_params)
         format.html { redirect_to new_merchant_url, notice: "Please provide the correct website." }
@@ -70,10 +36,6 @@ class MerchantsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
-  # PATCH/PUT 
->>>>>>> a8e765b... css index
   def update
     respond_to do |format|
       if !valid_website?(merchant_params)
@@ -92,10 +54,6 @@ class MerchantsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
-  # DELETE 
->>>>>>> a8e765b... css index
   def destroy
     @merchant.destroy
     respond_to do |format|
